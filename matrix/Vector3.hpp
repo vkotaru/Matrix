@@ -115,6 +115,10 @@ public:
         return Slice<Type, 2, 1, 3, 1>(0, 0, this);
     }
 
+    inline Vector3 elementWise(const Vector3 b) const {
+        const Vector3 &a(*this);
+        return Vector3<Type>(a(0)*b(0), a(1)*b(1), a(2)*b(2));
+    }
 
     Dcm<Type> hat() const {    // inverse to Dcm.vee() operation
         const Vector3 &v(*this);
